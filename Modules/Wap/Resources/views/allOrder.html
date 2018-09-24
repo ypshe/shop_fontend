@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>全部订单</title>
+    <link rel="stylesheet" type="text/css" href="wap/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="wap/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="head_com">
+            <div class="hederbg">
+                <a href="javascript:history.go(-1)" class="backIcon"></a>
+                <h1>全部订单</h1>
+            </div>
+        </div>
+        <div class="type">
+            <div class="typeCons">
+                <ul>
+                    <li v-for="(item,index) in menu">
+                        <span :class="{on:index==slectIndex}" @click="menuItem(index)">{{item.name}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="topjiange"></div>
+        <div class="topjiange"></div>
+        <div class="allorderList">
+            <div class="allorder-row" v-for="(item,index) in list">
+                <div class="allorder-title">
+                    <div class="allorder-title-l"><i class="orderIcon"></i>订单号：{{item.orderid}}</div>
+                    <div class="allorder-state">
+                        <span v-if="item.orderState==1">待审核</span>
+                        <span v-else-if="item.orderState==2">待发货</span>
+                        <span v-else-if="item.orderState==3">待收货</span>
+                        <span v-else-if="item.orderState==4">待评价</span>
+                        <span v-else-if="item.orderState==5">已完成</span>
+                    </div>
+                </div>
+                <div class="allorder-con">
+                    <ul>
+                        <li v-for="(item,index) in item.orderlist">
+                            <a href="produceDetails.html">
+                                <div class="allorderPic"><img :src="item.imgurl"></div>
+                                <div class="allordertext">
+                                    <div class="allorderName">{{item.name}}</div>
+                                    <div class="allorderMs">
+                                        <div class="orderPrice">￥{{item.price}}</div>
+                                        <div class="orderNum">x{{item.num}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="orderBottom">
+                   <div class="orderBottom-t">
+                       共&nbsp;{{item.orderlist.length}}&nbsp;件商品
+                       合计：￥117.00（含运费￥8.00）
+                   </div> 
+                   <div class="orderBottom-canzuo">
+                       <span class="delorder" v-if="item.orderState==1 || item.orderState==4 || item.orderState==5" @click="delorder">删除订单</span>
+                       <span class="goorder" v-if="item.orderState==1" @click="goorder">去下单</span>
+                       <span class="goorder" v-if="item.orderState==2" @click="cuiorder">我要催单</span>
+                       <span class="delorder" v-if="item.orderState==3" @click="querywl">查看物流</span>
+                       <span class="goorder" v-if="item.orderState==3" @click="qrsh">确认收货</span>
+                       <span class="delorder" :class="{goorder:item.orderState==5}" v-if="item.orderState==4 || item.orderState==5" @click="zcgm">再次购买</span>
+                       <span class="goorder" v-if="item.orderState==4" @click="qpj">去评价</span>
+                   </div> 
+                </div>  
+            </div>
+        </div>
+	 </div>
+	 <script type="text/javascript " src="wap/js/mui.min.js "></script>
+    <script type="text/javascript " src="wap/js/jquery.min.js "></script>
+    <script type="text/javascript " src="wap/js/vue.js "></script>
+    <script type="text/javascript " src="wap/js/allOrder.js "></script>
+</body>
+</html>

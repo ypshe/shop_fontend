@@ -1,0 +1,41 @@
+var app = new Vue({
+	el:'#app',
+	data:{
+		status:1
+	},
+	methods:{
+		delorder(){
+			console.log('删除订单....');
+		},
+		goorder(){
+			console.log('去下单....');
+		},
+		cuiorder(){
+			console.log('催单....');
+		},
+		querywl(){
+			console.log('查看物流....');
+		},
+		qrsh(){
+			console.log('确认收货....');
+		},
+		zcgm(){
+			console.log('再次购买....');
+		},
+		qpj(){
+			console.log('去评价....');
+		}
+	}
+})
+$('.menuIcon').click(function(e) {
+	if($('.menuS').hasClass('hide')){
+		$('.menuS').removeClass('hide');
+	}else{
+		$('.menuS').addClass('hide');
+	}
+	e.stopPropagation();
+});
+$(document).click(function(e){
+	$('.menuS').addClass('hide');
+	e.stopPropagation();
+})

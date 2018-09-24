@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>收银台</title>
+    <link rel="stylesheet" type="text/css" href="wap/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="wap/css/style.css">
+</head>
+
+<body class="searchbg" style="padding: 0;">
+    <div id="app">
+        <div class="head_com">
+            <div class="hederbg">
+                <a href="javascript:history.go(-1)" class="backIcon"></a>
+                <h1>收银台</h1>
+                <a href="javascript:;" class="sousuo">保存</a>
+            </div>
+        </div>
+        <div class="topjiange"></div>
+        <div class="cashierBox">
+            <div class="cashierBox-title">选择支付方式</div>
+            <div class="cashierBox-list">
+                <ul>
+                    <li>
+                        <i class="cashierIcon weixinIcon"></i>
+                        <span>微信支付</span>
+                        <div class="xuanze danxuan">
+                            <input type="radio" name="adname" id="weixin" value="1">
+                        </div>
+                    </li>
+                    <li>
+                        <i class="cashierIcon zhifubaoIcon"></i>
+                        <span>支付宝</span>
+                        <div class="xuanze danxuan">
+                            <input type="radio" name="adname" id="zhifubao" value="2">
+                        </div>
+                    </li>
+                    <li>
+                        <i class="cashierIcon xianjinIcon"></i>
+                        <span>现金支付</span>
+                        <div class="xuanze danxuan">
+                            <input type="radio" name="adname" id="xianjin" value="3">
+                        </div>
+                    </li>
+                    <li>
+                        <i class="require">*</i>
+                        <input type="text" placeholder="请填写你的付款账号，供卖家核实(必填)" name="" value="">
+                    </li>
+                </ul>
+            </div>
+            <div class="erwema">
+                <div class="erwemaPic"><img src="wap/images/erweima.png" alt=""></div>
+                <div class="erwemaText">保存至相册</div>
+            </div>
+        </div>
+	 </div>
+	 <script type="text/javascript " src="wap/js/mui.min.js "></script>
+    <script type="text/javascript " src="wap/js/jquery.min.js "></script>
+    <script type="text/javascript " src="wap/js/vue.js "></script>
+    <script type="text/javascript " src="wap/js/orderquren.js "></script>
+</body>
+</html>

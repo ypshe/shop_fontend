@@ -1,0 +1,31 @@
+var app = new Vue({
+    delimiters:['[[', ']]'],
+    el:'#app',
+	data:{
+		list:[{
+			id:1,
+			state:1,
+			price:20,
+			startTime:'2016.08.24',
+			endTime:'2016.08.26'
+		},{
+			id:2,
+			state:1,
+			price:20,
+			startTime:'2016.08.24',
+			endTime:'2016.08.26'
+		},{
+			id:3,
+			state:0,
+			price:20,
+			startTime:'2016.08.24',
+			endTime:'2016.08.26'
+		}],
+		param:1
+	},
+	methods:{
+		gobuy(){
+            mui.toast('去使用');
+        }
+	}
+})

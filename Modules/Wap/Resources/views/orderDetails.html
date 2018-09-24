@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" href="wap/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="wap/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="head_com">
+            <div class="hederbg">
+                <a href="javascript:history.go(-1)" class="backIcon"></a>
+                <h1>订单详情</h1>
+                <a href="javascript:;" class="menuIcon"></a>
+                <div class="menuS hide">
+                    <i class="sanjiao"></i>
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="menuSIcon indexIcon"></i>
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a href="categroy.html">
+                                <i class="menuSIcon typeIcon"></i>
+                                分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="buy.html">
+                                <i class="menuSIcon buyIcon"></i>
+                                购物车
+                            </a>
+                        </li>
+                        <li>
+                            <a href="PersonalCenter.html">
+                                <i class="menuSIcon myIcon"></i>
+                                我的
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="topjiange"></div>
+        <div class="orderDetails">
+            <div class="orderState">订单状态
+                <span v-if="status==1">待审核</span>
+                <span v-else-if="status==2">待发货</span>
+                <span v-else-if="status==3">待收货</span>
+                <span v-else-if="status==4">待评价</span>
+                <span v-else-if="status==5">已完成</span>
+            </div>
+            <div class="addressMsg">
+                <div class="userMsg"><i class="zbIcon"></i>李女士<span>132****0015</span></div>
+                <div class="useradd">河南省郑州市管城区 郑汴路东明路 </div>
+            </div>
+            <div class="orderDetailCon">
+                <div class="productMsg">
+                    <a href="produceDetails.html">
+                        <div class="productPic"><img src="wap/images/pic/pic1.png" alt=""></div>
+                        <div class="producttext">
+                            <div class="productTitle">江西名牌 杨氏精品脐橙 5kg装 钻石果 水果橙子礼盒 2种包装随机发</div>
+                            <div class="productMs">
+                                <div class="productPrice">￥39.90</div>
+                                <div class="productNums">×1</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="productMenu">
+                    <div class="productRow">
+                        <div class="productlabel">订单编号</div>
+                        <div class="productvalue">HSDJA152635685</div>
+                    </div>
+                    <div class="productRow">
+                        <div class="productlabel">下单时间</div>
+                        <div class="productvalue">2018-04-08  15：30：45</div>
+                    </div>
+                </div>
+                <div class="productMenu">
+                    <div class="productRow">
+                        <div class="productlabel">配送方式</div>
+                        <div class="productvalue">普通快递</div>
+                    </div>
+                    <div class="productRow">
+                        <div class="productlabel">支付方式</div>
+                        <div class="productvalue">线下支付</div>
+                    </div>
+                </div>
+                <div class="productMenu">
+                    <div class="productRow">
+                        <div class="productlabel">商品金额</div>
+                        <div class="productvalue">￥39.90</div>
+                    </div>
+                    <div class="productRow">
+                        <div class="productlabel">运费</div>
+                        <div class="productvalue">￥0.00</div>
+                    </div>
+                    <div class="productRow">
+                        <div class="productlabel">共1件商品</div>
+                        <div class="productvalue">实付款   <span>￥39.90</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="orderDetailBom">
+            <div class="orderBottom-canzuo">
+                <span class="delorder" v-if="status==1 || status==4 || status==5" @click="delorder">删除订单</span>
+               <span class="goorder" v-if="status==1" @click="goorder">去下单</span>
+               <span class="goorder" v-if="status==2" @click="cuiorder">我要催单</span>
+               <span class="delorder" v-if="status==3" @click="querywl">查看物流</span>
+               <span class="goorder" v-if="status==3" @click="qrsh">确认收货</span>
+               <span class="delorder" :class="{goorder:status==5}" v-if="status==4 || status==5" @click="zcgm">再次购买</span>
+               <span class="goorder" v-if="status==4" @click="qpj">去评价</span>
+            </div>
+        </div>
+	 </div>
+	 <script type="text/javascript " src="wap/js/mui.min.js "></script>
+    <script type="text/javascript " src="wap/js/jquery.min.js "></script>
+    <script type="text/javascript " src="wap/js/vue.js "></script>
+    <script type="text/javascript " src="wap/js/orderDetails.js "></script>
+</body>
+</html>
